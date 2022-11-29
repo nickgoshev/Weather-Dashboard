@@ -5,6 +5,8 @@
 
 A js application that searches for a weather forecast for a specific city using the openweather api. This application displays the forecast for today and the next 5 days. Whenever you search your search is recorded and stored in localstorage. You can click on your previous searches to bring up that search again.
 
+![alt text](https://github.com/nickgoshev/Weather-Dashboard/blob/main/image/Screen%20Shot%202022-11-29%20at%201.23.40%20PM.png?raw=true)
+
 https://nickgoshev.github.io/Weather-Dashboard/
 
 ## Table of Contents
