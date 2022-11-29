@@ -4,18 +4,30 @@ let history =[];
 function renderForecastTemplate(){
 
     for(i=0;i<=5;i++){
-        
+        if (i===0){
+          $("#today").append(  
+            `
+                <div id="${i}" class=" border p-2 border-dark" >
+                <div class=" border-bottom fw-bold justify-content-around">
+                <h3 id="city" class="col-md-2"> city </h3>
+                <p class="col-md-2"> Today </p>
+                </div>
+                <p id="temp${i}">temp: </p>
+                <p id="wind${i}">wind: </p>
+                <p id="humidity${i}">humidity: </p>      
+            `
+        )}else{
 
         $("#forecast").append(  
           `
-              <div id="${i}" class="col-md-2 border bg-info" >
-              <p class="border-bottom text-center"> ${moment().add(i,'days').format('MMMM Do')}
+              <div id="${i}" class="border text-light border-dark bg-secondary" style="width:17.4%">
+              <p class="border-bottom fw-bold text-center"> ${moment().add(i,'days').format('MMMM Do')}
               <p id="temp${i}">temp: </p>
               <p id="wind${i}">wind: </p>
               <p id="humidity${i}">humidity: </p>      
           `
         )
-      
+        }
       }
 
 // var current='';
@@ -23,6 +35,8 @@ function renderForecastTemplate(){
 
 
 function updateForecast(data){
+  $("#city").html(data.city.name);
+
   for(i=0;i<=5;i++){
     var wId = String('#wind'+i);
     var tId = String('#temp'+i);
@@ -33,6 +47,7 @@ function updateForecast(data){
     $(hId).html("humidity: " + data.list[i].main.humidity + '%');
 
 };
+
 };
 function renderHistory(){
   $("#previous").html("");
@@ -45,7 +60,7 @@ function renderHistory(){
 
     var btn = document.createElement('div');
     btn.setAttribute('type', 'button');
-    btn.classList.add('btnn', 'border', 'm-1', 'bg-secondary', 'p-2', 'text-light');
+    btn.classList.add('btnn', 'border', 'm-1', 'bg-secondary', 'p-2', 'text-light', "border-dark");
 
     // `data-search` allows access to city name when click handler is invoked
     btn.setAttribute('data-search', history[i]);
@@ -76,6 +91,7 @@ function weatherSearch(search){
   $.get('https://api.openweathermap.org/data/2.5/forecast?q='+search+'&units=imperial&appid='+ key,function(data){
       console.log(data);
       updateForecast(data);
+
       
     });
 };

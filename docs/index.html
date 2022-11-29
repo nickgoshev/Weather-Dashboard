@@ -9,18 +9,20 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="jumbotron">
+        <header class="jumbotron bg-secondary text-light">
             <h1 class="p-5 text-center">Weather Dashboard</h1>
         </header>
 <div class="container">
     <div class="row justify-content-around">
+
         <div class="col-2">
+            <div class="text-center fw-bold"> <h4 >Search for a city</h4></div>
     <form class="form-group row">
         <div class="form-group col">
             <input id="search" type="text" class="form-control" placeholder="city">
         </div>
         <div class="form-group col-sm-2">
-            <input type="submit" class="btn btn-info" value="Search">
+            <input type="submit" class="btn bg-secondary text-light" value="Search">
         </div>
     
     </form>
@@ -31,9 +33,10 @@
     </div>
 </div>
 <br>
-<div class="col-8">
+<div class="col-8 ">
     <div id="today">
     </div>
+    <br>
     <div id="forecast" class="row justify-content-around">
         
     </div>
